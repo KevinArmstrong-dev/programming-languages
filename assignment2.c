@@ -4,7 +4,7 @@
 #include <limits.h>
 int* findmin(int* , int);
 float getAverage(float[] , int);
-int* getMin(int[], int);
+int* findmin(int * arr, int);
 
 int main() 
 { 
@@ -12,7 +12,8 @@ int main()
 	printf("Array Average : %.1f. \n",getAverage(numbers,5));
 
 	int nums[7] = {2,100,3,4,512,34,4};
-	printf("The Minimum number is : %.d \n", *getMin(nums,7));
+	int * m = findmin(nums,7);
+	printf("The Minimum number is : %.d \n", * m);
 	return 0; 
 } 
 
@@ -33,7 +34,7 @@ This function takes a list and it's size,
 then it computes the lowest element then
 it returns a pointer to that element.
 **/
-int* getMin(int list[], int size){
+int* findmin(int list[], int size){
 	int i;
 	int min = INT_MAX ;
 	int pos = 0;
