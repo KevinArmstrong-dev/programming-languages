@@ -5,6 +5,7 @@
 int* findmin(int* , int);
 float getAverage(float[] , int);
 int* findmin(int * arr, int);
+void selectionsort(int * arr, int);
 
 int main() 
 { 
