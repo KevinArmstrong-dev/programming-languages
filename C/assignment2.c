@@ -5,15 +5,25 @@
 int* findmin(int* , int);
 float getAverage(float[] , int);
 int* findmin(int * arr, int);
+void selectionsort(int * arr, int);
+
 
 int main() 
 { 
 	float numbers[5] = {1, 2.5, 9, 11.5, 23.5};
 	printf("Array Average : %.1f. \n",getAverage(numbers,5));
 
-	int nums[7] = {2,100,3,4,512,34,4};
+	int nums[7] = {12,-100,3,4,512,34,4};
 	int * m = findmin(nums,7);
 	printf("The Minimum number is : %.d \n", * m);
+	printf("Hello cruel world!!");
+	//sort
+	selectionsort(nums,7);
+
+	for(int i = 0; i < 7; i++){
+		printf(" elems: %d ",nums[i]);
+	}
+
 	return 0; 
 } 
 
@@ -26,7 +36,7 @@ float getAverage(float list[] , int size){
 		sum = sum + list[i];
 	}
 	average = (sum/size);
-	return average;
+	return average; //average
 }
 
 /**
@@ -47,5 +57,22 @@ int* findmin(int list[], int size){
 	}
     res = &list[pos];
 	return res;
+}
+
+void selectionsort(int list[], int size){
+
+	int i, j;
+	for(i=0; i < size; i ++){
+		int min = i;
+		for(j=i+1 ; j < size ; j++){
+			if(list[j]< list[min]){
+				min = j;
+			}
+		}
+
+		int temp = list[min];
+		list[min] = list[i];
+		list[i] = temp;
+	}
 }
 
