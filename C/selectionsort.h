@@ -4,7 +4,7 @@
 int* findmin(int* , int);
 float getAverage(float[] , int);
 int* findmin(int * arr, int);
-void selectionsort(int * arr, int);
+void selectionsort(int * arr, int); //make helper functions private
 
 /**
 This function takes a list and it's size,
