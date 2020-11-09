@@ -13,17 +13,11 @@ int main()
 	float numbers[5] = {1, 2.5, 9, 11.5, 23.5};
 	printf("Array Average : %.1f. \n",getAverage(numbers,5));
 
-	int nums[8] = {1,9,3,4,7,8,6,2};
-	int * m = findmin(nums,8);
-//	printf("The Minimum number is : %.d \n", * m);
-	printf("Hello cruel world!!");
-	putchar('\n');
-	//sort
-	selectionsort(nums,8);
-
-	for(int i = 0; i < 7; i++){
-		printf("%d ",nums[i]);
-	}
+	int arr[] = {1, 4, 5, 6, -1 };
+	int * ptr;
+	int i;
+	selectionsort(arr, 5);
+	for(i = 0; i < 5; i++) printf("%d ", arr[i]);
 	putchar('\n');
 	return 0; 
 } 
