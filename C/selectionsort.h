@@ -5,8 +5,10 @@
 int* findmin(int* , int);
 float getAverage(float[] , int);
 int* findmin(int * arr, int);
+int* min(int * arr, int);
 int makesmaller(int * arr, int ,int );
-void selectionsort(int * arr, int); 
+void selectionsort(int * arr, int, int( *min()));
+
 
 /**
 This function takes a list and it's size,
@@ -28,14 +30,22 @@ int* findmin(int list[], int size){
 	return res;
 }
 
-void selectionsort(int list[], int size){
+void selectionsort(int list[], int size, int (*min())){
     int i,j;
     int * ptr;
+
+    if(min == NULL){
+        printf("Min was not given");
+    }
     for(i=0; i < size/2 ; i ++){
-        int * min = findmin(&list[i],size);
-        int temp = list[i];
-        list[i] = *min;
-        *min = temp;
+        if(min == NULL){
+           int * min = findmin(&list[i],size);
+            int temp = list[i];
+            list[i] = *min;
+           *min = temp;
+        }
+      
     }
 
 }
+
