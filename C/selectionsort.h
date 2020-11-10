@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <limits.h>
 int* findmin(int* , int);
-float getAverage(float[] , int);
 int* findmin(int * arr, int);
 int* min(int * arr, int);
 int makesmaller(int * arr, int ,int );
