@@ -18,8 +18,8 @@ int main()
 	putchar('\n');
 
 	//12
-	int arr2[] = {1, 7, 5, 3, 4 };
-	sorter(arr2,5);
+	int arr2[] = {9, 2, 5, 4, 12, 7};
+	sorter(arr2,6);
 	putchar('\n');
 
 	// ptr = &arr2[2];
