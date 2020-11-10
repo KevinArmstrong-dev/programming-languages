@@ -6,8 +6,6 @@
 #include "sorter.h"
 
 int* findmin(int* , int);
-float getAverage(float[] , int);
-
 
 int main() 
 { 
@@ -20,7 +18,7 @@ int main()
 	putchar('\n');
 
 	//12
-	int arr2[] = {1, 7, 5, 3, -4 };
+	int arr2[] = {1, 7, 5, 3, 4 };
 	sorter(arr2,5);
 	putchar('\n');
 
