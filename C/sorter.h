@@ -1,12 +1,14 @@
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int sorter(int * arr, int); 
 int* findmax(int * arr, int);
 int* copyarr(int * arr, int);
 void swap(int *first, int *sec); 
-int getAverage(int[] , int);
+float getAverage(int[] , int);
+float getStandardDeviation(int[] , int, float);
 
 int* findmax(int list[], int size){
 	int i;
@@ -79,7 +81,10 @@ int sorter(int list[], int size){
 
     printf("The Maximum Number is: %d \n",desc[0]);
     printf("The Minimum Number is: %d \n",asc[0]);
-    printf("The average is : %d \n", getAverage(list,size));
+    float average = getAverage(list,size);
+    printf("The average is : %.2f \n", average);
+    printf("The standard deviation is %.2f \n", getStandardDeviation(list,size,average));
+
     putchar('\n');
     free(asc);
     free(desc);
@@ -92,15 +97,28 @@ void swap(int *first, int *sec) {
     *sec = temp; 
 } 
 
-int getAverage(int list[] , int size){
+float getAverage(int list[] , int size){
 
 	int i;
 	int sum = 0;
-	int average = 0;
+	float average = 0.0;
 
 	for (i =0 ; i < size ; i++){
 		sum = sum + list[i];
 	}
-	average = (sum/size);
+
+	average = ((float)sum/(float)size);
 	return average; //average
+}
+
+float getStandardDeviation(int list[] , int size, float average){
+   float indiv = 0.0;
+   float stdv =0.0;
+    for(int i=0; i < size; i++){
+        indiv = indiv + (((float)list[i]- average)*((float)list[i]- average));
+    }
+    float variance = indiv/(float)(size - 1);
+    stdv = sqrtf(variance);
+
+    return stdv;
 }
