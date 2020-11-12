@@ -1,0 +1,257 @@
+﻿;;number 1
+(defun sub-list (lst1 from to)
+    (if (or (null lst1) (<= to 0) (< (list-length lst1) to))
+        nil
+        (let ((index 0) (temp))
+               (if (> from 0)
+                 (sub-list (cdr lst1) (- from 1) to)
+                 nil)
+             (if (and (equal 0 from) (< 0 to)) 
+                         (print (cons  (car lst1) (sub-list (cdr lst1) from (- to 1))))
+                          nil)
+          )))
+
+
+(sub-list '(1 2 3 4 5 6) 1 2)
+
+
+;;; implement list length function
+
+
+number 2
+
+
+(defun sub-list (lst1 &optional (from 1) (to (list-length lst1)))
+    (if (or (null lst1) (<= to 0) (< (list-length lst1) to))
+        nil
+        (let ((index 0) (temp))
+             (if (and (equal 0 from) (< 0 to)) 
+                         (print (cons  (car lst1) (sub-list (cdr lst1) from (- to 1))))
+                          nil)
+             (if (> from 0)
+                 (sub-list (cdr lst1) (- from 1) to)g
+                 nil))))
+
+
+(sub-list '(1 2 3 4 5 6) 1 2)
+
+
+;;;
+
+
+number 3
+
+
+(defun flatten-numbers (elts)
+    (if (null elts)
+        nil
+        (if (listp (car elts))
+            (append (flatten-numbers (car elts)) (flatten-numbers (cdr elts)))
+            (if (numberp (car elts))
+                (cons (car elts) (flatten-numbers (cdr elts)))
+                nil))))
+
+
+(print (flatten-numbers '(1 2 (7.1 8.2) (3 a b c) 4)))
+
+
+//version without dupes
+
+
+
+
+(defun remove-dupes (elems)
+    (if (null elems)
+        nil
+        (if (member (car elems) (cdr elems))
+            (remove-dupes (cdr elems))
+            (cons (car elems) (remove-dupes (cdr elems))))))
+
+
+(defun flatten-numbers (elts)
+    (if (null elts)
+        nil
+        (if (listp (car elts))
+            (append (flatten-numbers (car elts)) (flatten-numbers (cdr elts)))
+            (if (numberp (car elts))
+                (remove-dupes (cons (car elts) (flatten-numbers (cdr elts))))
+                 (flatten-numbers (cdr elts))))))
+
+
+(print (flatten-numbers '(1 2 (3 1) (a 2.5) (2 4.5) ((1 2)))))
+
+
+
+
+number 4
+
+
+
+
+(defun bst (lst) 
+    (cond ((or (null lst) (null (car (cdr lst)) ) (null  (car (cdr (cdr lst))))) (print "End of list"))
+        ((<= (car (car (cdr lst))) (car lst)) (bst (car (cdr lst))))
+        ((< (car (car (cdr (cdr lst)))) (car lst)) (bst (car (cdr (cdr lst)))))
+        ((> (car (car (cdr (cdr lst)))) (car lst)) t)
+        ((> (car (car (cdr lst))) (car lst)) t)))
+
+
+
+
+;print (bst '(1 2 3 4) '3 '5))
+(bst '(8 (3 (1 () () ) (6 (4 () ())(7 () () ))) (10 () (14 (13 () () )()))))
+(bst '(8 (3 (1 () () ) (6 (4 () ())(7 () () ))) (10 () (14 (13 () () )()))))
+
+
+Number 5.
+(defun get-sub-first (lst n)
+        (if (or (null lst) (>= 0 n))
+            nil
+            (cons (car lst) (get-sub-first (cdr lst) (- n 1))))
+        )
+
+
+(defun get-sub-last (lst n)
+        (if (null lst)
+            nil
+            (if (>= 0 n)
+               (cons (car lst) (get-sub-last (cdr lst) (- n 1)))
+               (get-sub-last (cdr lst) (- n 1)))
+           )
+        )
+(defun all-sub (lst)
+        (list (get-sub-first lst (/ (list-length lst ) 2)) (get-sub-last lst (/ (list-length lst ) 2))))
+
+
+(print (all-sub '(1 2 3 4)))
+(print (all-sub '(1 2 3 4 5)))
+(print (all-sub '(1 (2 3) 4 5)))
+
+
+
+
+
+
+
+
+
+
+Number 6
+
+
+(defun util-fun (num lst)
+        (cond
+            ((and (<= num (car lst)) (null (car (cdr lst)))) (setf (car (cdr lst)) (list num '() '())))
+            ((and (> num (car lst)) (null (car (cdr (cdr lst))))) (setf (car (cdr (cdr lst))) (list num '() '())))
+            ((and (<= num (car lst)) (listp (car (cdr lst)))) (setf (car (cdr lst)) (util-fun num (car (cdr lst)))))
+            ((and (> num (car lst)) (listp (car (cdr (cdr lst)))))
+             (setf (car (cdr (cdr lst))) (util-fun num (car (cdr (cdr lst))))))
+            (t nil)
+            )
+        (print lst)
+        )
+
+
+;(util-fun '1 '(8 (3 () ()) (10 () ())))
+(print (util-fun '3 '(8 (4 () ())())))
+
+
+(defun make-cbtree (lst)
+        (let ((root) (placeholders '()))
+             (if (null lst) null)
+             (setf root (list (car lst) '() '() ))
+             (setf lst (cdr lst))
+             (setf placeholders (append root placeholders))
+             (loop
+               
+              ;;exit statement
+              (if (null lst)
+                  (return root)
+                  nil)
+              
+              (setf n (list (car lst) '() '() ))
+              (setf lst (cdr lst))
+              (setf ph (list (car placeholders) () ()))
+              (cond
+                  ((null (car (cdr placeholders))) (setf (car (cdr placeholders)) n))
+                  ((null (car (cdr (cdr placeholders)))) (setf (car (cdr (cdr placeholders))) n))
+                  ((and (listp (car (cdr placeholders)))
+                        (numberp (car (car (cdr placeholders))))
+                        (>= (car placeholders) (car n))
+                        )
+                   (setf (car (cdr placeholders)) (util-fun (car n) (car (cdr placeholders))))
+                   )
+                  (t (util-fun (car n) (car (cdr (cdr placeholders)))))
+                  )
+              (print placeholders)
+             )
+        ))
+
+
+(make-cbtree '(8 3 10 1 6))
+
+
+
+
+Number 7
+
+
+(defun add-stars (num lst)
+        (if (or (null lst) (<= num 0))
+            nil
+            (cons '* (add-stars (- num 1) lst)))
+            )
+(defun remove-stars (num target lst)
+        (if (= target num)
+            nil
+            (cons '* (remove-stars (incf num) target lst)))
+            )
+
+
+(defun triangle-minus (num)
+        (setf lst '(*))
+        (setf temp (* num -1))
+        (dotimes (n temp)
+            (dotimes (inner n)
+              (setf lst (append lst (list '*)))
+                )
+            (print lst)
+            )
+        )
+
+
+(defun triangle (num)
+        (cond
+            ((not (numberp num)) (print "Invalid Number; please enter a positive or negative integer"))
+            ((not (integerp num))(print "Invalid Number; please enter a positive or negative integer"))
+            ((= num 0) (print "Invalid Number; please enter a positive or negative integer"))
+            ((> 0 num) (triangle-minus num) )
+            (t         
+             (loop
+               (print (add-stars num '(*)))
+               (decf num)
+               (if (<= num 0)
+              (return))
+            ))
+            )
+
+
+        )
+
+
+(triangle '7)
+
+
+Number 7
+
+
+(defun lucas-sequence (num)
+        (cond
+            ((= num 0) 2)
+            ((= num 1) 1)
+            ((> num 1) (+(lucas-sequence(- num 1)) (lucas-sequence(- num 2))))
+            )
+        )
+
+
+(print (lucas-sequence 7))
