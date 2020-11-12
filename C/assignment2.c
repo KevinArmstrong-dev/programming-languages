@@ -10,20 +10,32 @@
 #include "stringreader.h"
 
 void insert_dictionary_orderx(char data[]);
-int* findmin(int* , int);
+static int * findmin(int* arr, int size);
 
 int main() 
 { 
 	
+
+	//9 find min
 	int arr[] = {1, 4, 5, 6, -1 };
+	int * m = findmin(arr,5);
+	printf("%d",*m);
+	putchar('\n');
+
+	//10 selection sort
 	int * ptr;
 	int i;
-	selectionsort(arr, 5,NULL);
+	selectionsort(arr, 5);
+	printf("selection sort \n");
 	for(i = 0; i < 5; i++) printf("%d ", arr[i]);
 	putchar('\n');
 
-	//12
 	int arr2[] = {9, 2, 5, 4, 12, 7};
+
+	//11
+	//selectionsortMin(arr2,6,sorter(arr2,6));
+
+	//12
 	sorter(arr2,6);
 	putchar('\n');
 
