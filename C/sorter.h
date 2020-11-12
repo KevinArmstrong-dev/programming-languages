@@ -11,6 +11,7 @@ static float getAverage(int[] , int);
 float getStandardDeviation(int[] , int, float);
 int selectionsortMin(int * arr, int, int);
 
+
 static int* findmax(int list[], int size){
 	int i;
 	int max = INT_MIN ;
@@ -52,9 +53,6 @@ int sorter(int list[], int size){
     for(i=0; i < size ; i ++){
         int * max = findmax(&desc[i],size - i);
         swap(&desc[i],&*max);
-        // int temp = desc[i];
-        // desc[i] = *max;
-        // *max = temp;
     }
 
     int minIndex;
