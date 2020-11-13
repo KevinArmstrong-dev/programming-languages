@@ -82,19 +82,17 @@
 ;;number 4
 
 
-
 (defun bst (lst) 
-    (cond ((or (null lst) (null (car (cdr lst)) ) (null  (car (cdr (cdr lst))))) (print "End of list"))
+    (cond ((or (null lst) (null (car (car (cdr lst))))) nil)
+        ((> (car (car (cdr lst))) (car lst)) (print "Not  a Bst"))
+        ((< (car (car (cdr (cdr lst)))) (car lst)) (print "Not a bst"))
         ((<= (car (car (cdr lst))) (car lst)) (bst (car (cdr lst))))
         ((< (car (car (cdr (cdr lst)))) (car lst)) (bst (car (cdr (cdr lst)))))
         ((> (car (car (cdr (cdr lst)))) (car lst)) t)
-        ((> (car (car (cdr lst))) (car lst)) t)))
+        ((> (car (car (cdr lst))) (car lst)) t)
+        )
+    )
 
-
-
-
-;print (bst '(1 2 3 4) '3 '5))
-(bst '(8 (3 (1 () () ) (6 (4 () ())(7 () () ))) (10 () (14 (13 () () )()))))
 (bst '(8 (3 (1 () () ) (6 (4 () ())(7 () () ))) (10 () (14 (13 () () )()))))
 
 
