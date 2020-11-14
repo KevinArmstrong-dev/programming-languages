@@ -4,18 +4,20 @@
 #include <math.h>
 
 int sorter(int * arr, int); 
-int* findmax(int * arr, int);
+static int* findmax(int * arr, int);
 int* copyarr(int * arr, int);
-void swap(int *first, int *sec); 
-float getAverage(int[] , int);
+static void swap(int *first, int *sec); 
+static float getAverage(int[] , int);
 float getStandardDeviation(int[] , int, float);
+int selectionsortMin(int * arr, int, int);
 
-int* findmax(int list[], int size){
+
+static int* findmax(int list[], int size){
 	int i;
 	int max = INT_MIN ;
 	int pos = 0;
 	int *res;
-	for(i=0 ; i < size ; i++){
+	for(i=0 ; i < size; i++){
 		if(max < list[i]){
 			max = list[i];
 			pos = i;
@@ -49,10 +51,8 @@ int sorter(int list[], int size){
     int i ;
     int y =0;
     for(i=0; i < size ; i ++){
-        int * max = findmax(&desc[i],size);
-        int temp = desc[i];
-        desc[i] = *max;
-        *max = temp;
+        int * max = findmax(&desc[i],size - i);
+        swap(&desc[i],&*max);
     }
 
     int minIndex;
@@ -91,13 +91,13 @@ int sorter(int list[], int size){
     return 0;
 }
 
-void swap(int *first, int *sec) { 
+static void swap(int *first, int *sec) { 
     int temp = *first; 
     *first = *sec; 
     *sec = temp; 
 } 
 
-float getAverage(int list[] , int size){
+static float getAverage(int list[] , int size){
 
 	int i;
 	int sum = 0;
@@ -121,4 +121,28 @@ float getStandardDeviation(int list[] , int size, float average){
     stdv = sqrtf(variance);
 
     return stdv;
+}
+
+int selectionsortMin(int list[], int size, int min){
+    int i,j;
+    int * ptr;
+    int * min_Num;
+
+    if(min != 0){
+        printf("Min was not given");
+    }
+    for(i=0; i < size/2 ; i ++){
+        if(min != 0){
+           min_Num = findmin(&list[i],size);
+            int temp = list[i];
+            list[i] = *min_Num;
+            *min_Num = temp;
+        }else{
+         //min is called
+        }
+      
+    }
+
+    return 0 ;
+
 }
