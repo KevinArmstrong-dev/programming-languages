@@ -25,7 +25,7 @@ static int* findmin(int list[], int size){
 		}
 	}
     res = &list[pos];
-	return res;
+	return res; //should modify some funcs
 }
 
 
