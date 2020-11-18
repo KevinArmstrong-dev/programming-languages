@@ -3,16 +3,23 @@
 #include <stdlib.h>
 #include <math.h>
 
-int sorter(int * arr, int, int (*min)(int list[], int size)); 
-static int* findmax(int * arr, int);
+int sorter(int * arr, int,int* (*min)(int list[], int size)); 
+static int * findmax(int * arr, int);
 int* copyarr(int * arr, int);
 static void swap(int *first, int *sec); 
 static float getAverage(int[] , int);
 float getStandardDeviation(int[] , int, float);
-//int selectionsortMin(int * arr, int, int);
 
 
-static int* findmax(int list[], int size){
+int main(){
+
+    int arr2[] = {9, 2, 5, 4, 12, 7};
+   // int x = findmax;
+    //12
+	sorter(arr2,6,findmax);
+}
+
+static int * findmax(int list[], int size){
 	int i;
 	int max = INT_MIN ;
 	int pos = 0;
@@ -25,10 +32,11 @@ static int* findmax(int list[], int size){
 	}
     res = &list[pos];
 	return res;
+   // return list[pos];
 }
 
 
-int sorter(int list[], int size, int (*min)(int list[], int size)){
+int sorter(int list[], int size, int* (*min)(int list[], int size)){
     int * desc = (int*) malloc(size * sizeof(int));
     if(desc == NULL){
         printf("ERROR: Out of memory. \n");
@@ -51,7 +59,7 @@ int sorter(int list[], int size, int (*min)(int list[], int size)){
     int i ;
     int y =0;
     for(i=0; i < size ; i ++){
-        int * max = findmax(&desc[i],size - i);
+        int * max = min(&desc[i],size - i);
         swap(&desc[i],&*max);
     }
 
@@ -122,32 +130,6 @@ float getStandardDeviation(int list[] , int size, float average){
 
     return stdv;
 }
-// int selectionsortMin(int list[], int size, int (*min)(int list[], int size)){
-//     int i,j;
-//     int * ptr;
-//     int * min_Num;
 
-//     if(min != 0){
-//         printf("Min was not given");
-//     }
-//     for(i=0; i < size/2 ; i ++){
-//         if(min == NULL){
-//            min_Num = findmin(&list[i],size);
-//             int temp = list[i];
-//             list[i] = *min_Num;
-//             *min_Num = temp;
-//         }else{
-//          //min is called
-//           min_Num = findmax(&list[i],size);
-//             int temp = list[i];
-//             list[i] = *min_Num;
-//             *min_Num = temp;
-//         }
-      
-//     }
-
-//     return 0 ;
-
-// }
 
 
