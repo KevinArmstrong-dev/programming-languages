@@ -22,7 +22,6 @@ struct node* insert_dictionary_order(char data[],struct node *head){
 
     stpcpy(newNode->data,data);
     newNode->next = head;
-
     return newNode;
 }
 
