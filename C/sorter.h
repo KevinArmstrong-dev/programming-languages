@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include <math.h>
 
-int sorter(int * arr, int, int (*min)(int list[], int size)); 
+int sorter(int * arr, int); 
 static int* findmax(int * arr, int);
 int* copyarr(int * arr, int);
 static void swap(int *first, int *sec); 
 static float getAverage(int[] , int);
 float getStandardDeviation(int[] , int, float);
-//int selectionsortMin(int * arr, int, int);
+int selectionsortMin(int * arr, int, int);
 
 
 static int* findmax(int list[], int size){
@@ -122,32 +122,32 @@ float getStandardDeviation(int list[] , int size, float average){
 
     return stdv;
 }
-// int selectionsortMin(int list[], int size, int (*min)(int list[], int size)){
-//     int i,j;
-//     int * ptr;
-//     int * min_Num;
+int selectionsortMin(int list[], int size, int (*min)(int list[], int size)){
+    int i,j;
+    int * ptr;
+    int * min_Num;
 
-//     if(min != 0){
-//         printf("Min was not given");
-//     }
-//     for(i=0; i < size/2 ; i ++){
-//         if(min == NULL){
-//            min_Num = findmin(&list[i],size);
-//             int temp = list[i];
-//             list[i] = *min_Num;
-//             *min_Num = temp;
-//         }else{
-//          //min is called
-//           min_Num = findmax(&list[i],size);
-//             int temp = list[i];
-//             list[i] = *min_Num;
-//             *min_Num = temp;
-//         }
+    if(min != 0){
+        printf("Min was not given");
+    }
+    for(i=0; i < size/2 ; i ++){
+        if(min == NULL){
+           min_Num = findmin(&list[i],size);
+            int temp = list[i];
+            list[i] = *min_Num;
+            *min_Num = temp;
+        }else{
+         //min is called
+          min_Num = findmax(&list[i],size);
+            int temp = list[i];
+            list[i] = *min_Num;
+            *min_Num = temp;
+        }
       
-//     }
+    }
 
-//     return 0 ;
+    return 0 ;
 
-// }
+}
 
 

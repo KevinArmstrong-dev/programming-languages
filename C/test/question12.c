@@ -14,9 +14,8 @@ float getStandardDeviation(int[] , int, float);
 int main(){
 
     int arr2[] = {9, 2, 5, 4, 12, 7};
-   // int x = findmax;
     //12
-	sorter(arr2,6,findmax);
+	sorter(arr2,6,NULL);
 }
 
 static int * findmax(int list[], int size){

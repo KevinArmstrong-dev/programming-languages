@@ -20,7 +20,7 @@
         )
 
 
-(print (sub-list '(1 6 12) 4 2))
+(print (sub-list '(1 6 12) 2 3))
 
 
 ;;; number 2
