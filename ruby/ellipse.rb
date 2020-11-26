@@ -12,6 +12,7 @@ class Ellipse < Shape
     # Overriden perimeter method 
     # 
     def perimeter()
+        puts "undefined"
         return nil
     end 
 

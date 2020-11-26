@@ -1,9 +1,10 @@
 require "./circle.rb"
 require "./ellipse.rb"
 require './rectangle.rb'
-
+require "./fileIO.rb"
 include Math
 require "./shape.rb"
+
 
 rect = Rectangle.new(3,4)
 puts rect.perimeter
@@ -13,6 +14,14 @@ circle = Circle.new(4)
 puts circle.area
 puts circle.perimeter
 
+ellipse = Ellipse.new(2,3)
+puts ellipse.perimeter
+
+file = FileIO.new("inputs.txt")
+
+File.open("inputs.txt").each{ |line|
+    file.processString(line)
+}
 # puts "Hello Cruel World!!"
 # puts PI
 
