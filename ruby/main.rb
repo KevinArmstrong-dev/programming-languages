@@ -5,17 +5,13 @@ require "./fileIO.rb"
 include Math
 require "./shape.rb"
 
-
-rect = Rectangle.new(3,4)
-puts rect.perimeter
-puts rect.area
+# rect = Rectangle.new(3,4)
+# puts rect.perimeter
+# puts rect.area
 
 circle = Circle.new(4)
 puts circle.area
 puts circle.perimeter
-
-ellipse = Ellipse.new(2,3)
-puts ellipse.perimeter
 
 file = FileIO.new("inputs.txt")
 
