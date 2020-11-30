@@ -1,6 +1,7 @@
 require "./circle.rb"
 require "./ellipse.rb"
 require './rectangle.rb'
+require "./shape.rb"
 
 include Math
 
@@ -17,22 +18,22 @@ class FileIO
 
     def processString(input)
         @inputList = input.split(/[\s,']/)
-        # puts @inputList
+
         case @inputList[0]
-        when /\shape/
+        when /^shape/
+            puts "Found shape"
             @shape = Shape.new()
             puts "Shape, Perimeter: #{@shape.perimeter}, area: #{@shape.area}"
-        when /\rectangle/
-            puts "Found rectangle"
-            rectangle = Rectangle.new(@inputList[1],@inputList[2])
-            puts "Rectangle, Perimeter: #{@rectangle.perimeter}, area: #{@rectangle.area} "
+        when /^rectangle/
+            rect = Rectangle.new(@inputList[1],@inputList[2])
+            puts "Rectangle, perimeter: #{rect.perimeter}, area: #{rect.area} "
         when /^circle/
-            puts "In circle !!!"
             circle = Circle.new(@inputList[1])
-            puts "Circle, Perimeter: #{@circle.perimeter}, area: #{@circle.area} "
+            # puts circle.area
+            puts "Circle, Perimeter: #{circle.perimeter}, area: #{circle.area} "
         when /^ellipse/
             ellipse = Ellipse.new(@inputList[1],@inputList[2])
-            puts "Ellipse, Perimeter: #{@ellipse.perimeter}, area: #{@ellipse.area} "
+            puts "Ellipse, Perimeter: #{ellipse.perimeter}, area: #{ellipse.area}, Eccentricity: #{ellipse.eccentricity} "
         else
             puts "Error: The given shape #{@inputList[0]} Is Invalid! Please check your input"
         end

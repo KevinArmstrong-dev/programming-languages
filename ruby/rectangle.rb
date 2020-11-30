@@ -5,22 +5,23 @@ class Rectangle < Shape
     # constructor
     def initialize(height, width)
         super()
-        if (height < 0 || width < 0) then
-           puts "Invalid Height or Width given !! The input should be greater than 0"
+        if height.to_i.negative?() then
+            puts "Invalid Height or Width given !! The input should be greater than 0"
         else
-            @@height = height
-            @@width = width
+            @@height = height.to_i
+            @@width = width.to_i
         end
     end
 
     # Overriden perimeter method 
     # 
-    def perimeter()
-        return  2 * (@@height + @@width)
+    def perimeter
+        # puts "perimeter"
+       return 2 * (@@height + @@width)
     end 
 
     # area of the circle
-    def area()
+    def area
         return @@height * @@width
     end
 

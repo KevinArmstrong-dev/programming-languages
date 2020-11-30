@@ -5,7 +5,7 @@ class Circle < Shape
     # constructor
     def initialize(radius)
         super()
-        @@radius = radius
+        @@radius = radius.to_i
     end
 
     # Overriden perimeter method 

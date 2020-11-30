@@ -5,8 +5,8 @@ class Ellipse < Shape
     # constructor
     def initialize(a, b)
         super()
-        @@semi_major = a
-        @@semi_minor = b
+        @@semi_major = a.to_i
+        @@semi_minor = b.to_i
     end
 
     # Overriden perimeter method 
@@ -23,7 +23,7 @@ class Ellipse < Shape
 
     # eccentricity
     def eccentricity()
-        return sqrt((@semi_major ** 2) - (@semi_minor ** 2))
+        return sqrt((@semi_major.to_i ** 2) - (@semi_minor.to_i ** 2))
     end
 
 end
