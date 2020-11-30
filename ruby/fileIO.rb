@@ -23,18 +23,15 @@ class FileIO
         when /^shape/
             puts "Found shape"
             @shape = Shape.new()
-            # puts "Shape, Perimeter: #{@shape.perimeter}, area: #{@shape.area}"
+            puts "Shape, Perimeter: #{@shape.perimeter}, area: #{@shape.area}"
         when /^rectangle/
             rect = Rectangle.new(@inputList[1],@inputList[2])
             puts "Rectangle, perimeter: #{rect.perimeter}, area: #{rect.area} "
         when /^circle/
-            puts "In circle !!!"
             circle = Circle.new(@inputList[1])
             # puts circle.area
             puts "Circle, Perimeter: #{circle.perimeter}, area: #{circle.area} "
         when /^ellipse/
-            puts "===================================="
-            puts "Found Ellipse"
             ellipse = Ellipse.new(@inputList[1],@inputList[2])
             puts "Ellipse, Perimeter: #{ellipse.perimeter}, area: #{ellipse.area}, Eccentricity: #{ellipse.eccentricity} "
         else

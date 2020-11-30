@@ -5,12 +5,12 @@ class Rectangle < Shape
     # constructor
     def initialize(height, width)
         super()
-        # if height.negative?() then
-        #    puts "Invalid Height or Width given !! The input should be greater than 0"
-        # else
+        if height.to_i.negative?() then
+            puts "Invalid Height or Width given !! The input should be greater than 0"
+        else
             @@height = height.to_i
             @@width = width.to_i
-        # end
+        end
     end
 
     # Overriden perimeter method 
