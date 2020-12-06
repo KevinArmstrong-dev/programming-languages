@@ -7,19 +7,16 @@ class Shape
 
     # Method print the name of the shape, perimeter, and area of the shape
     def print()
-        puts "undefined"
-        return nil
+        return "undefined"
     end
 
     # Method perimeter
     def perimeter()
-        puts "undefined"
-        return nil
+        return "undefined"
     end
 
     def area()
-        puts "undefined"
-        return nil
+        return "undefined"
     end
 end
 

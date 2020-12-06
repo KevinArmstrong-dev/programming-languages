@@ -5,6 +5,9 @@ class Ellipse < Shape
     # constructor
     def initialize(a, b)
         super()
+        if(a.to_i < 0 || b.to_i < 0)
+            puts "Invalid Ellipse"
+        end
         @@semi_major = a.to_i
         @@semi_minor = b.to_i
     end
@@ -12,8 +15,7 @@ class Ellipse < Shape
     # Overriden perimeter method 
     # 
     def perimeter()
-        puts "undefined"
-        return nil
+        return "undefined"
     end 
 
     # area of the circle
