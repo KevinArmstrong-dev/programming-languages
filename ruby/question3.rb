@@ -21,8 +21,9 @@ class Question3  < FileIO
 
         case @inputList[0]
         when /^shape/
-            statistics["shape"] = statistics["shape"] + 1
-            puts statistics["shape"]
+            puts "Hello cruel world!"
+            @statistics["shape"] = @statistics["shape"] + 1
+            puts @statistics["shape"]
         when /^rectangle/
             @statistics["rectangle"] = @statistics["rectangle"] + 1
             @statistics["rectangle"]
