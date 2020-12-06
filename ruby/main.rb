@@ -14,14 +14,26 @@ require "./question3.rb"
 # puts circle.area
 # puts circle.perimeter
 
-# file = FileIO.new("inputs.txt")
+file = FileIO.new("inputs.txt")
 
-# File.open("inputs.txt").each{ |line|
-#     file.processString(line)
-# }
+File.open("inputs.txt").each{ |line|
+    file.processString(line)
+}
 
 hash = Question3.new("inputs.txt")
 File.open("inputs.txt").each{ |line|
     hash.processString(line)
 }
 
+# puts "Hello Cruel World!!"
+# puts PI
+
+# a = ["Number",1 ,2 ,3,3.14]
+# puts a
+
+# biblio = {
+#     "nabokov89a" => "Pain",
+#     "bulgakov96" => "The master and margarita"
+# }
+
+# puts biblio["nabokov89a"]
