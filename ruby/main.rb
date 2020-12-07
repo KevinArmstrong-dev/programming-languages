@@ -6,14 +6,6 @@ include Math
 require "./shape.rb"
 require "./question3.rb"
 
-# rect = Rectangle.new(3,4)
-# puts rect.perimeter
-# puts rect.area
-
-# circle = Circle.new(4)
-# puts circle.area
-# puts circle.perimeter
-
 file = FileIO.new("inputs.txt")
 
 File.open("inputs.txt").each{ |line|
