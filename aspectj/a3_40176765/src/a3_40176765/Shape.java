@@ -2,7 +2,7 @@ package a3_40176765;
 
 public interface Shape {
 	//Uncomment the following (required by 4.3.5)
-	//int getId();
+	int getId();
 	String getName();
 	double getPerimeter();
 	double getArea();
