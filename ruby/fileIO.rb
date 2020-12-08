@@ -21,19 +21,31 @@ class FileIO
 
         case @inputList[0]
         when /^shape/
-            puts "Found shape"
             @shape = Shape.new()
             puts "Shape, Perimeter: #{@shape.perimeter}, area: #{@shape.area}"
         when /^rectangle/
             rect = Rectangle.new(@inputList[1],@inputList[2])
-            puts "Rectangle, perimeter: #{rect.perimeter}, area: #{rect.area} "
+            
+            if(rect.isValid())
+                puts "Rectangle, perimeter: #{rect.perimeter}, area: #{rect.area} "
+            else
+                puts "Error: Invalid Rectangle"
+            end
         when /^circle/
             circle = Circle.new(@inputList[1])
-            # puts circle.area
-            puts "Circle, Perimeter: #{circle.perimeter}, area: #{circle.area} "
+            if(circle.isValid())
+                puts "Circle, Perimeter: #{circle.perimeter}, area: #{circle.area} "
+            else
+                puts "Error: Invalid Circle"
+            end
+
         when /^ellipse/
             ellipse = Ellipse.new(@inputList[1],@inputList[2])
-            puts "Ellipse, Perimeter: #{ellipse.perimeter}, area: #{ellipse.area}, Eccentricity: #{ellipse.eccentricity} "
+            if(ellipse.isValid())
+                puts "Ellipse, Perimeter: #{ellipse.perimeter}, area: #{ellipse.area}"
+            else
+                puts "Error: Invalid Ellipse"
+            end
         else
             puts "Error: The given shape #{@inputList[0]} Is Invalid! Please check your input"
         end
