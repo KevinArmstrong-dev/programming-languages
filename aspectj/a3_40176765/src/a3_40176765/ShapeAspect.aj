@@ -61,7 +61,7 @@ public privileged aspect ShapeAspect {
 	
 	
 	double around(Rectangle r): rectanglePerimeter(r) {
-		if(r.width < 0 && r.height <0) {
+		if(r.width < 0 || r.height <0) {
 			return 0.0;
 		}else {
 			return proceed(r);
