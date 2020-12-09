@@ -39,6 +39,14 @@ public privileged aspect ShapeAspect {
 		execution(* Rectangle.getPerimeter())&&
 		this(r);
 	
+	public int Circle.getId() {
+		return ShapeAspect.counter;
+	}
+	
+	public int Rectangle.getId() {
+		return ShapeAspect.counter;
+	}
+	
 	double around(Circle c): circleArea(c) {
 		return getArea(c.radius);
 	}
@@ -51,6 +59,7 @@ public privileged aspect ShapeAspect {
 		}
 	}
 	
+	
 	double around(Rectangle r): rectanglePerimeter(r) {
 		if(r.width < 0 || r.height <0) {
 			return 0.0;
@@ -59,12 +68,15 @@ public privileged aspect ShapeAspect {
 		}
 	}
 	
-//	private static int counter =1;
-//	public int Shape.getId() {
-//		return this.counter += 1;
-//	}
-//	
-//	pointcut shapeCounter() : 
-//		call (Shape.new());
+	private static int counter =0;
+	
+	
+	after():call(Circle.new(..)){
+		ShapeAspect.counter = ShapeAspect.counter +1;
+	}
+	
+	after():call(Rectangle.new(..)){
+		ShapeAspect.counter = ShapeAspect.counter +1;
+	}
 
 }

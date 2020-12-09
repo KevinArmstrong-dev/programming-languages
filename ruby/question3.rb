@@ -25,29 +25,19 @@ class Question3  < FileIO
             @@statistics["shape"] = @@statistics["shape"] + 1
         when /^rectangle/
 
-            rect = Rectangle.new(@inputList[1],@inputList[2])
-            
-            if(rect.isValid())
-                @@statistics["shape"] = @@statistics["shape"] + 1
-                @@statistics["rectangle"] = @@statistics["rectangle"] + 1
-            end
+            @@statistics["shape"] = @@statistics["shape"] + 1
+            @@statistics["rectangle"] = @@statistics["rectangle"] + 1
 
         when /^circle/
 
-            circle = Circle.new(@inputList[1])
-            if(circle.isValid())
                 @@statistics["shape"] = @@statistics["shape"] + 1
                 @@statistics["circle"] = @@statistics["circle"] + 1
-            end
+
         when /^ellipse/
 
-            ellipse = Ellipse.new(@inputList[1],@inputList[2])
-            
-            if(ellipse.isValid())
-                # puts "Is valid ellipse #{ellipse.isValid}"
                 @@statistics["shape"] = @@statistics["shape"] + 1
                 @@statistics["ellipse"] = @@statistics["ellipse"] + 1
-            end
+   
             
         else
             puts "Error: The given shape #{@@inputList[0]} Is Invalid! Please check your input"
