@@ -17,4 +17,5 @@ File.open("inputs.txt").each{ |line|
     hash.processString(line)
 }
 
-hash.printShape()
+# hash.printShape()
+hash.easyPrint()
