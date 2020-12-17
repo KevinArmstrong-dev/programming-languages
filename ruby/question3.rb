@@ -44,6 +44,14 @@ class Question3  < FileIO
         end
     end
 
+    # Easy way of traversing an associative array
+    
+    def easyPrint()
+        @@statistics.each_pair do |key, value|
+            puts "#{key} : #{value}"
+        end
+    end
+    
     def printShape()
         puts "Statistics : "
         puts "Shape(s): #{@@statistics["shape"]}"
