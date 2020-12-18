@@ -12,7 +12,7 @@ class Question3  < FileIO
         "circle" => 0,
         "ellipse" => 0
     }
-    @@temp =2
+
     def initialize(filename)
         super(filename)
     end
